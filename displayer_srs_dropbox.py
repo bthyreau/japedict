@@ -6,6 +6,11 @@ import PyQt4.uic
 import codecs, sys, mmap, random, re, os, glob, sha, time
 from romaji import roma, kana
 
+
+possible_fonts = ["Bitstream Cyberbit", "Droid Sans Japanese", u"EPSON 丸ゴシック体Ｍ", u"EPSON 太明朝体Ｂ", u"EPSON 行書体Ｍ", u"EPSON 教科書体Ｍ"]
+# This is a list of fontname used randomly for display (not included in the repo, harvested from the web...)
+#Additionally, a font named "KanjiStrokeOrders" is used by default on the tooltip
+
 sha_hash = lambda v : sha.sha(v.encode("utf-8")).hexdigest()[:8]
 
 class srs_management(object):
@@ -14,8 +19,12 @@ class srs_management(object):
     srs_map : a fixed-entry-size table for word scheduling, first column is hash of entry (either direct or reverse)
     _dhashvoca_F: a dictionary linking hashcodes to voca entries (index in voca)
     """
-    srs_stats_filename = "%s/Dropbox/displayer_srs_stats.txt" % os.environ['HOME']
+    # Configuration of the vocabulary list (this is where japedict saves its entries,
+    # and where Rika-chan should save them too, see relevant Rika-chan's configuration option in the Firefox addon dialog)  
     vocafile = "%s/Dropbox/japedict_edict_rikachan_list.txt" % os.environ['HOME']
+    # A private file to store current SRS statistics.
+    srs_stats_filename = "%s/Dropbox/displayer_srs_stats.txt" % os.environ['HOME']
+    # Number of second to wait before querying again, per categories. (each word is promoted to next category on success)
     D_sr_delay = { "c0": 30, "c1" : 5*60,  "c2" : 30*60, "c3" : 2*60*60, "c4" : 24*60*60, "c5" : 5*24*60*60, "c6": 14*24*60*60, "c7": 2*31*24*60*60 }
 
     voca = []
@@ -174,8 +183,7 @@ class displayer(QtGui.QWidget):
 
     def refresh(self, reverse):
         if self.displayed == (2 if reverse else 0):
-            self.label_font.setFamily(random.choice(["Bitstream Cyberbit", "Droid Sans Japanese",
-                                        u"EPSON 丸ゴシック体Ｍ", u"EPSON 太明朝体Ｂ", u"EPSON 行書体Ｍ", u"EPSON 教科書体Ｍ"]))
+            self.label_font.setFamily(random.choice(possible_fonts))
 
             # check previous answer and update srs map
             prev_srs_idx, prev_srs_entry = self.current_item_srs

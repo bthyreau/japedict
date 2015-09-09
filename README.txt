@@ -24,7 +24,7 @@ used at random to avoid visual overfitting.
 can be used from many computers.
 
 
-Proram Contents
+Program Contents
 
 japanesedict_dropbox.py
 - japEdict is a straightforward user interface to the free EDICT
