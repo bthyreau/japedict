@@ -258,7 +258,7 @@ class displayer(QtGui.QWidget):
 
     @QtCore.pyqtSignature("")
     def on_pushButtonLater_clicked(self):
-        srs.update_srs_entry(self.current_item_srs[0], time.time() + 5*86400, category = "c0") # reset this word category and put it away for 5 days
+        srs.update_srs_entry(self.current_item_srs[0], time.time() + 7*86400, category = "c0") # reset this word category and put it away for one week
         self.current_item_srs = (-1, None)
 
 

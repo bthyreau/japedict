@@ -181,6 +181,9 @@
          <height>16777215</height>
         </size>
        </property>
+       <property name="toolTip">
+        <string>Enforce Fail, ie. I don't know this word, re-ask me soon</string>
+       </property>
        <property name="text">
         <string>&amp;Fail</string>
        </property>
@@ -200,6 +203,9 @@
          <height>16777215</height>
         </size>
        </property>
+       <property name="toolTip">
+        <string>ignore my current (immediate next) answer</string>
+       </property>
        <property name="text">
         <string>&amp;Pass</string>
        </property>
@@ -218,6 +224,9 @@
          <width>50</width>
          <height>16777215</height>
         </size>
+       </property>
+       <property name="toolTip">
+        <string>Don't bother me with this word for one next week</string>
        </property>
        <property name="text">
         <string>&amp;Later</string>
