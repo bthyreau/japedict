@@ -23,7 +23,7 @@ for line in codecs.open(os.path.join(execpath,"radkfile.utf8"), "r", encoding="u
 
 #print " ".join(radDict.keys())
 
-class Radk(QtGui.QDialog):
+class Radk(QtGui.QWidget):
 	def __init__(self, parent=None):
 		QtGui.QDialog.__init__(self, parent)
 
