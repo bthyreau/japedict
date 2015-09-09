@@ -39,6 +39,9 @@ japanesedict_dropbox.py
   It embedds a copy of Ed Halley's romaji.py to convert kana-romaji
   http://halley.cc/code/?python/romaji.py
 
+  The program can also grep's from pre-made material (e.g. textbook)
+  (try to search for "zankoku").
+
 radk.py
   Allows to quickly split or merge kanji based on its key compound.
 

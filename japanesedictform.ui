@@ -139,7 +139,7 @@ p, li { white-space: pre-wrap; }
         <string>Ctrl-F</string>
        </property>
        <property name="text">
-        <string>Grep Lyrics</string>
+        <string>grep snippets</string>
        </property>
        <property name="shortcut">
         <string>Ctrl+F</string>

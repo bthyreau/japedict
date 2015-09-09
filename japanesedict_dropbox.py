@@ -77,7 +77,7 @@ class JapaneseDict(QtGui.QWidget):
             return
         if not ('a' < req[0] < 'z'):
             req = unicode(self.lineEditK.text()).encode('utf-8')
-        v = os.popen("zgrep -C 1 '" + req + "' toyuncat.gz").read().replace(req, '<b><span style=" color:#00007f;">%s</span></b>'%req)
+        v = os.popen("zgrep -C 1 '" + req + "' snippet_sentences.txt.gz").read().replace(req, '<b><span style=" color:#00007f;">%s</span></b>'%req)
         v=[[i.split('\t') for i in x.strip().split('\n')] for x in v.replace('\n\n','\n--\n').split('--\n') if x]
         self.textBrowser.clear()
         for song in v[:100]:
