@@ -231,10 +231,15 @@ class displayer(QtGui.QWidget):
                 except:
                     v = ""
                 self.label_2.setText(self.txts[1] + v)
+                if reverse:
+                    self.progress_timer.stop()
+
             else:
                 self.displayed = (1 if reverse else 2)
         if self.displayed == 2:
             self.label_3.setText(self.txts[2])
+            if not reverse:
+                self.progress_timer.stop()
 
         self.label_1.setToolTip(u'<span style="font-size:72pt;font-family:KanjiStrokeOrders">%s</span>' % self.txts[0])
 
